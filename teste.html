@@ -1,250 +1,148 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/d37c5443c6.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Simplificado</title>
+    <script src="https://kit.fontawesome.com/d37c5443c6.js" crossorigin="anonymous"></script>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-  --font: "Montserrat", sans-serif;
+        :root {
+            --font: "Montserrat", sans-serif;
+            --font-color: #1c1c1c;
+            --bg-color: linear-gradient(120deg, #370664 0%, #000000 100%);
+            --bg-card: #ecf4ff;
+            --purple: #3e068bbd;
+            --orange: #ffb86c;
+            --grey: #44475a;
+        }
 
-  --font-color: #1c1c1c;
+        body {
+            background: var(--bg-color);
+            font-family: var(--font);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-  --bg-color: linear-gradient(120deg, #370664 0%, #000000 100%);
-  --bg-card: #ecf4ff;
-  --bg-projetc: rgba(192, 192, 192, 0.6);
+        .container {
+            width: 400px;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
 
-  --grey: #44475a; /* cor do nome projetos desenvolvidos...*/
-  --orange: #ffb86c;
-  --purple: #3e068bbd; /* cor das logos*/
-}
+        /* Perfil */
+        .perfil {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
 
-/*===== Body =====*/
+        .perfil img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-body {
-  background: var(--bg-color) no-repeat;
-  background-size: auto;
-  font-family: var(--font);
-  height: 100vh;
-}
+        .title {
+            margin-left: 1rem;
+        }
 
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
+        .title h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
 
-.container {
-  width: 600px;
-  background: var(--bg-card);
-  color: var(--title-color);
+        .title h3 {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--grey);
+        }
 
-  padding: 3rem;
+        .link-icon {
+            font-size: 1.2rem;
+            color: var(--purple);
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
 
-  border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  display: block;
-}
+        .link-icon:hover {
+            color: var(--orange);
+        }
 
-/*===== Header =====*/
-.perfil {
-  display: flex;
-  align-items: center;
-}
+        /* Projetos */
+        .projetos h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
 
-.perfil > img {
-  max-width: 10rem;
-  max-height: 10rem;
-  border-radius: 50%;
-  box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.2);
-}
+        .projetos p {
+            font-size: 0.8rem;
+            color: var(--grey);
+            margin-bottom: 0.5rem;
+        }
 
-.title {
-  margin-left: 1rem;
-}
+        .projetos ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
 
-.title h1 {
-  font-weight: bolder;
-  font-size: 1.8rem;
-}
+        .projetos li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
 
-.title h3 {
-  font-weight: 400;
-  font-size: 1rem;
-}
+        .projetos i {
+            margin-right: 0.5rem;
+            color: var(--purple);
+        }
 
-.title p {
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: #949494;
-  margin-bottom: 0.3rem;
-}
+        .projetos a {
+            color: var(--font-color);
+            text-decoration: none;
+        }
 
-/*==== texto animado ===== */
-.line-1 {
-  position: relative;
-  top: 50%;
-  width: 28em;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  font-size: 0.8rem;
-  color: var(--grey);
-  white-space: nowrap;
-  overflow: hidden;
-  font-weight: 400;
-  transform: translateY(-50%);
-}
-
-/* Animation */
-.anim-typewriter {
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms steps(44) infinite normal;
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 28em;
-  }
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(255, 255, 255, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
-
-@keyframes caret {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/*===== Icons ===== */
-.lista-links {
-  color: var(--title-color);
-}
-
-.link-icon {
-  text-decoration: none;
-  font-size: 1.3rem;
-  color: var(--purple);
-  transition: color 0.2s;
-}
-
-.link-icon:hover {
-  color: var(--orange);
-}
-
-/*===== Projetos =====*/
-.projetos {
-  margin-top: 1rem;
-}
-
-.container-projetos {
-  padding: 1.1rem 1rem;
-  background: var(--bg-projetc);
-  /*box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);*/
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
-
-.container-projetos h4 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.container-projetos ol {
-  margin-left: 1rem;
-  color: var(--title);
-}
-
-.container-projetos li {
-  font-size: 0.9rem;
-}
-
-.container-projetos a {
-  text-decoration: none;
-  font-size: 0.9rem;
-  color: var(--title);
-}
-
-.container-projetos a:hover {
-  color: var(--purple);
-}
-
-.container-projetos li:hover {
-  color: var(--purple);
-}
-
+        .projetos a:hover {
+            color: var(--purple);
+        }
     </style>
 </head>
-    
 <body>
+    <div class="container">
+        <header class="perfil">
+            <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/101751056/419571250-f7be0fb8-9042-47b1-831d-d9094b465fcd.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250305%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250305T174124Z&X-Amz-Expires=300&X-Amz-Signature=effd1df98790b8a90f14468d6cc9267b84b1f6817b0f3a734c40408f81d8faf9&X-Amz-SignedHeaders=host" alt="Foto de perfil">
+            <div class="title">
+                <h1>fdking_</h1>
+                <h3>Junior Programmer</h3>
+            </div>
+        </header>
 
-  <div class="container centered">
-    <header class="perfil">
-      <img src="https://avatars.githubusercontent.com/u/101751056?s=400&u=f3718a1bd6d1862b1aaf3cfcc9e20c734894b361&v=4" alt="">
-      <div class="title">
-        <h1>fdking_</h1>
-        <h3>junior programmer</h3>
-        <p>#official account #dev</p>
-
-        <!-- Icons -->
-        <a title="tiktok" class="link-icon" target="_blank" href="https://www.tiktok.com/@fdking_.fk">
-          <i class="fab fa-tiktok"></i>
-        </a>
-
-        <a title="GitHub" class="link-icon" target="_blank" href="https://github.com/felipediegofellps">
-          <i class="fab fa-github-square"></i>
-        </a>
-        </a>
-      </div>
-    </header>
-
-    <!-- estrutura do projeto -->
-    <main class="projetos">
-      <div class="container-projetos">
-        <h4>Projetos</h4>
-        <p class="line-1 anim-typewriter"> Projetos e coisas que eu desenvolvo / participo </p>
-        <ol>
-          <li><a title="twitch" class="link-icon" target="_blank" href="https://www.twitch.tv/rayethd" target="_blank">  <i class="fab fa-twitch"></i> MOD do streamer Rayet</a></li>
-          <li> <a title="twitch" class="link-icon" target="_blank" href="https://www.roblox.com/users/1497637179/profile" target="_blank">  <i class="fab fa-Roblox"></i> MOD do streamer Rayet</a></li>
-          <li><a href="html" target="_blank"> teste</a></li>
-          <li><a href="html" target="_blank"> teste</a></li>
-        </ol>
-      </div>
-
-    </main>
-  </div>
-  <!-- Script -->
-  <script src="app.js"></script>
-  <script>
-  
- 
-      </script>
-  
+        <main class="projetos">
+            <h4>Projetos</h4>
+            <p>Coisas que eu desenvolvo</p>
+            <ul>
+                <li>
+                    <i class="fab fa-discord"></i>
+                    <a>Criador de bots para Discord</a>
+                </li>
+                <li>
+                    <i class="fab fa-roblox"></i>
+                    <a href="https://www.roblox.com/users/1497637179/profile" target="_blank">Roblox Dev</a>
+                </li>
+            </ul>
+        </main>
+    </div>
 </body>
-
 </html>
